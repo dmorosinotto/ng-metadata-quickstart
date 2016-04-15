@@ -1,0 +1,9 @@
+{
+  "name": "ng-metadata-quickstart",
+  "version": false,
+  "dependencies": {},
+  "ambientDependencies": {
+    "angular": "registry:dt/angular#1.5.0+20160412133217",
+    "jquery": "registry:dt/jquery#2.0.0+20160303223636"
+  }
+}

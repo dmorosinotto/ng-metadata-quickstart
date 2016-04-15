@@ -1,0 +1,40 @@
+<html>
+  <head>
+    <title>ngMetadata QuickStart</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">    
+
+    <!-- 1. Load SystemJS + Reflect metadata -->
+    <script src="node_modules/systemjs/dist/system-polyfills.js"></script>
+    <script src="node_modules/systemjs/dist/system.js"></script>
+    <script src="node_modules/reflect-metadata/Reflect.js"></script>
+    
+    <!-- 2. Configure SystemJS for ngMetadata -->
+    <script src="dist/app-bundle.js">//load app-bundle built by TS</script>
+    <script>
+    //read more info on SystemJS config here: https://github.com/systemjs/systemjs/blob/master/docs/config-api.md
+    System.config({
+        paths: { 
+            "npm:*": "node_modules/*"   //path for npm modules included
+        },
+        map: {
+            angular:"npm:angular",              //resolve module name 'angular' to npm
+            "ng-metadata": "npm:ng-metadata"    //resolve module 'ng-metadata/*' to npm 
+        },
+        packages:{
+            angular: { main: "angular.min" },       //load angular 1.5.x min.js
+            "ng-metadata": { map: { "/*":"./*" } }  //needed to properly resolve ng-metadata/core  and  ng-metadata/platform
+        }
+    });
+    
+    //load app  startup  (that boostrap angular and the app.module)  
+    System.import( "startup" ).catch( console.error.bind( console ) );
+    </script>
+    
+    <link rel="stylesheet" href="styles.css">
+  </head>
+
+  <!-- 3. Display the application -->
+  <body>
+    <my-app>Loading...</my-app>
+  </body>
+</html>
