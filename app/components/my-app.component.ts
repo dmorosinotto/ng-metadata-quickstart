@@ -1,10 +1,11 @@
 import {Component, Inject} from "ng-metadata/core";
 import {QuestionSvc} from "../services/question.service";
+import html from "app/components/my-app.html!"; //LOADING TEMPLATE HTML FROM EXTERNAL FILE WITH .html! SYSTEMJS PLAGIN
+//TO AVOID TS2307 ERROR YOU MUST USE ABSOLUTE PATH AND DECLARE MODULE IN    typings/tempfix-plugin-tsc-issue-6615.d.ts
 
 @Component({
     selector: "my-app",
-    template: `<h1>My First {{$ctrl.title}} App</h1>
-               <ask question="{{$ctrl.question}}" on-Response="$ctrl.show($event)"></ask>`
+    template: html //I PREFER INLINE TEMPLATE, BUT YOU CAN USE SYSTEMJS PLUGIN .html! TO LOAD EXTERNAL FILE
 })
 export class AppCmp {
     constructor( //inject dependency into constructor
