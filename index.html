@@ -19,6 +19,8 @@
         map: {
             angular:"npm:angular",              //resolve module name 'angular' to npm
             "ng-metadata": "npm:ng-metadata"    //resolve module 'ng-metadata/*' to npm 
+            ,"css": "npm:systemjs-plugin-css/css.js"    //enable css plugins for import *.css!
+            ,"html": "npm:system-text/text.js"          //enable text plugins for import *.html!
         },
         packages:{
             angular: { main: "angular.min" },       //load angular 1.5.x min.js
@@ -27,10 +29,9 @@
     });
     
     //load app  startup  (that boostrap angular and the app.module)  
-    System.import( "startup" ).catch( console.error.bind( console ) );
+    System.import( "app/startup" ).catch( console.error.bind( console ) );
     </script>
     
-    <link rel="stylesheet" href="styles.css">
   </head>
 
   <!-- 3. Display the application -->
