@@ -12,15 +12,18 @@ npm i -g  typings
 - Optionally install `npm i -g  http-server` to serve page locally
 
 ##Installation and Run
-Clone this repo and then simply install the dependency and run main it with 
+Clone this repo and then simply install the dependency and run it: 
 ```
 npm install
 npm start
 ```
+Open your browser and go to [http://localhost:8080](http://localhost:8080)
+
+
 
 ###Initial setup (JUST DONE)
 This step was JUST DONE to produce the repo in the current state, so you don't need to redone it!
-But it's usefull to know how to start from scretch if you need it.
+But it may be usefull to know how to start from scretch.
 ```
 npm init -y
 npm i --save  angular  reflect-metadata  systemjs  ng-metadata 
@@ -44,9 +47,9 @@ Folder structure
 Configure [tsconfig.json](tsconfig.json) to build **Typescipt** app files and output js to `dist` folder, 
 and setup [SystemJS](https://github.com/systemjs/systemjs/blob/master/docs/config-api.md) into [index.html](index.html) 
 to load the **Angular** `app` module bootstrapping it with ngMetadata from `startup`
-Setup some scripts in [package.json](package.json) to automate `build` and `serve`
+And finally setup some scripts in [package.json](package.json) to automate `build` and `serve`
 
 ###OTHER SETUP AND SAMPLE
 This repo contains other SystemJS config and TS sample, to test different setup checkout branches:
-- `bundle` sample with TS compiler set with outFile to produce dist/app-bundle.js using system
-- `outdir` sample with TS compiler set with outDir to produce all js in dist folder using commonjs
+- [`bundle`](https://github.com/dmorosinotto/ng-metadata-quickstart/tree/bundle) sample with TS compiler set with outFile to produce dist/app-bundle.js using system
+- [`outdir`](https://github.com/dmorosinotto/ng-metadata-quickstart/tree/outdir) sample with TS compiler set with outDir to produce all js in dist folder using commonjs
