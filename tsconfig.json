@@ -8,12 +8,11 @@
     "experimentalDecorators": true,
     "removeComments": false,
     "noImplicitAny": false,
-    "outFile": "dist/app-bundle.js"
+    "outFile": "dist/app-bundle.js", //BUILD AND BUNDLE ALL TS --> JS 
+    "rootDir": "./" //NEEDED TO HAVE CORRECT MODULE DEF app/* IN BUNDLE
   },
-  "exclude": [
-    "node_modules",
-    "typings/main",
-    "typings/main.d.ts",
-    "._try"
+    "files": [
+    "app/startup.ts",
+    "typings/browser.d.ts"
   ]
 }
