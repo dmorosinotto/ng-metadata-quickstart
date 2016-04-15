@@ -1,8 +1,9 @@
 # Javascript
 node_modules
-typings
+typings/*
 dist
 npm-debug.log
+!typings/tempfix-plugin-tsc-issue-6615.d.ts
 
 ## OS X
 .DS_Store
