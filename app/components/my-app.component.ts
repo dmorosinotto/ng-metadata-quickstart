@@ -3,7 +3,8 @@ import {QuestionSvc} from "../services/question.service";
 import html from "app/components/my-app.html!"; //LOADING TEMPLATE HTML FROM EXTERNAL FILE WITH .html! SYSTEMJS PLAGIN
 //TO AVOID TS2307 ERROR YOU MUST USE ABSOLUTE PATH AND DECLARE MODULE IN    typings/tempfix-plugin-tsc-issue-6615.d.ts
 
-import {EventHandler, onResponseEventArg} from "./ask.component"
+import {EventHandler} from "./ng-metadata_core_patch"
+import {onResponseEventArg} from "./ask.component"
 
 @Component({
     selector: "my-app",
@@ -23,9 +24,10 @@ export class AppCmp {
     //property exposed to template via $ctrl (controllerAs default alias)
     public title: string;
     public question: string;
+    
     //method exposed to template via $ctrl (controllerAs default alias)
-    public show: EventHandler<onResponseEventArg> =
-    ($e) => {
-        this.win.alert(`Thanks for your response:\n${$e.resp}!`);   
-    } 
+    //ALTERNATIVE WAY TO DECLARE A METHOD THAT TO GET TYPECHECK FOR e: onResponseEventArg
+    public show: EventHandler<onResponseEventArg> = (e) => {
+        this.win.alert(`Thanks for your response:\n${e.resp} fully typed!`);   
+    }
 }

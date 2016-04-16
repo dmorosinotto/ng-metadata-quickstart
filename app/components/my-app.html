@@ -1,2 +1,4 @@
 <h1>My First {{$ctrl.title}} App</h1>
-<ask question="{{$ctrl.question}}" on-response="$ctrl.show($event)"></ask>
+<ask question="{{$ctrl.question}}" on-response="$ctrl.show($event)">
+    <!-- notice use of $event to get event args passed to method show -->
+</ask>
