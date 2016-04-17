@@ -1,9 +1,11 @@
 # Javascript
 node_modules
+assets/styles/*.css
 typings/*
 dist
 npm-debug.log
 !typings/tempfix-plugin-tsc-issue-6615.d.ts
+!typings/workaround-ngmocks.d.ts
 
 ## OS X
 .DS_Store
