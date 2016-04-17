@@ -1,10 +1,8 @@
 var SystemConfig = (function() {
     // List your node_modules packages here
     var packages = [
-        'angular-material',
-        'angular-mocks',
         'ng-metadata',
-        'reflect-metadata'
+        'reflect-metadata',
     ];
 
     var config = {
@@ -18,7 +16,9 @@ var SystemConfig = (function() {
             "chai": "npm:chai/chai.js",
             "util": "npm:util/util.js",
             "inherits": "npm:inherits/inherits.js",
-            "angular": "npm:angular/angular.js"
+            "angular": "npm:angular/angular.js",
+            "angularmocks": "npm:angular-mocks/angular-mocks.js",
+            "traceur": "npm:traceur/bin/traceur.js"
         },
         packages: {
             'app': {
@@ -29,7 +29,21 @@ var SystemConfig = (function() {
                 format: 'register',
                 defaultExtension: 'js'
             }
-        }
+        },
+        meta: {
+            "angular": {
+                "format": "global",
+                "exports": "angular"
+            },
+            "angularmocks": {
+              "format": "global",
+              "exports": "angular"
+            },
+            "html": {
+                "format": "cjs"
+            }
+        },
+        transpiler: "traceur"
     };
 
     //TODO figure out why chai & angular & util & inherits don't work with this

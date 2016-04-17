@@ -1,21 +1,20 @@
 /// <reference path="../typings/browser.d.ts" />
 /// <reference path="../typings/tempfix-plugin-tsc-issue-6615.d.ts" />
+/// <reference path="../typings/workaround-ngmocks.d.ts" />
+/// <reference path="../typings/browser/ambient/angular-mocks/index.d.ts" />
 
-import {expect} from "chai";
-console.log("hey");
-import {AppCmp} from "../app/components/my-app.component";
-import {AppModule} from "../app/app.module";
-import {renderFactory, IRender} from "ng-metadata/testing";
-import {provide} from "ng-metadata/core";
+import {expect} from 'chai';
+import {AppCmp} from '../app/components/my-app.component';
+import {AppModule} from '../app/app.module';
+import {renderFactory, IRender} from 'ng-metadata/testing';
+import * as angular from 'angularmocks';
 
 let $compile: ng.ICompileService;
 let $rootScope: ng.IRootScopeService;
 let $scope;
 let render: IRender;
 
-describe("my-app.component", () => {
-
-
+describe('my-app.component', () => {
 
     beforeEach(() => {
         angular.mock.module(AppModule);
@@ -33,14 +32,12 @@ describe("my-app.component", () => {
     it(`should create the DOM and compile`, () => {
         const attrs = { };
         $scope.model = 'Martin!';
-		console.log("test");
         // here we go!
         // it returns instance and compiled DOM
-        const {compiledElement, ctrl} = render(AppCmp, { attrs:attrs });
+        const {compiledElement, ctrl} = render(AppCmp, { attrs: attrs });
 
-		console.log(ctrl);
         expect(ctrl instanceof AppCmp).to.equal(true);
-        expect(compiledElement[0]).to.equal('<my-app>hello Martin!</my-app>');
-    })
+        expect(compiledElement[0].outerHTML).to.contain('writing code');
+    });
 
 });

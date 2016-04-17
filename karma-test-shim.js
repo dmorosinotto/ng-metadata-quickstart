@@ -16,7 +16,8 @@ Promise.all(
 .then(function() {
     __karma__.start();
 }, function(error) {
-    __karma__.error(error.name + ": " + error.message);
+    console.log(error);
+    //__karma__.error(error.name + ": " + error.message);
 });
 
 // Filter spec files
