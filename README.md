@@ -26,8 +26,10 @@ This step was JUST DONE to produce the repository in the current state, so you d
 But it may be useful to know how to start from scratch.
 ```
 npm init -y
-npm i --save  angular  reflect-metadata  systemjs  ng-metadata
-npm i --save-dev  typescript  tslint
+npm i --save  angular  reflect-metadata  ng-metadata
+npm i --save  systemjs  system-text  systemjs-plugin-css
+npm i --save-dev  typescript  tslint  copyfiles  rimraf
+typings i -g
 typings init
 typings install  jquery  angular  --save  --ambient
 ```
@@ -37,13 +39,15 @@ Folder structure
 \ - app                             <-- contains all your Typescript code
 |    \ - components
 |    |    | - ask.component.ts      <-- sample dumb component with inline template
-|    |    \ - my-app.component.ts   <-- sample smart component with inline template
+|    |    | - my-app.component.ts   <-- sample smart component with external html
+|    |    \ - my-app.html           <-- sample component html loaded by plugin
 |    \ - services
 |    |    \ - question.service.ts   <-- sample service using dependency injection
 |    | - app.module.ts              <-- define app module
+|    | - styles.css                 <-- sample css styles loaded by plugin
 |    \ - startup.ts                 <-- entry point boostrap angular app
 |
-| - dist                            <-- output directory for transpiled code TS->JS
+| - dist                            <-- output directory for transpiled code TS->JS + copied assets css/html
 | - index.html                      <-- initial page that load ambient dependency: SystemJS, Reflect-metadata 
 | - system.config.js                <-- SystemJS configuration for loading module starting from 'app/startup' entrypoint  
 \ - tsconfig.json                   <-- configure compiler (tsc) to build Typescript code 
@@ -56,7 +60,7 @@ And finally setup some scripts in [package.json](package.json) to automate `buil
 
 
 ###BRANCH `outdir`
-This branch show how to build a sample app with component-style architecture and use TS to output all the compiled code in ./dist using commonjs format 
+This branch show how to build a sample app with component-style architecture and use TS to output all the compiled code in ./dist using `commonjs` format + copy assets html/css in ./dist to load it later via plugins
 - [AskCmp](app/components/ask.component.ts) is a class that shows how to write a *dumb component* using inline template + ngMetadata `@Input` `@Output` to expose in/out bindings + handle `ngOnInit` life-cycle hook
 - [AppCmp](app/components/my-app.component.ts) is class that shows how to write a *smart component* using external html + ngMetadata `@Inject` for setting DI to get *services* instance + simple property binding and event handler
 - [QuestionSvc](app/services/question.service.ts) is a class that shows how to write a simple *service* decorated with ngMetadata `@Injectable` and using `@Inject` to get basics ng service/provider ($log,$q) injected by string 'token'

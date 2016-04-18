@@ -1,10 +1,10 @@
 import {Component, Inject} from "ng-metadata/core";
 import {QuestionSvc} from "../services/question.service";
+const html = require("./my-app.html"); // require external HTML - relative path is based on .js loaded so need to copy assets in ./dist
 
 @Component({
     selector: "my-app",
-    template: `<h1>My First {{$ctrl.title}} App</h1>
-               <ask question="{{$ctrl.question}}" on-Response="$ctrl.show($event)"></ask>`
+    template: html
 })
 export class AppCmp {
     constructor( // inject dependency into constructor

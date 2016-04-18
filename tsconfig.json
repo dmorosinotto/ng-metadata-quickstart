@@ -12,6 +12,7 @@
   },
   "files": [
       "app/startup.ts",
-      "typings/browser.d.ts"
+      "typings/browser.d.ts",
+      "typings-manual-fix.d.ts"
   ]
 }
