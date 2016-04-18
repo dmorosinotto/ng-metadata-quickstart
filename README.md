@@ -34,7 +34,7 @@ typings init
 typings install  jquery  angular  --save  --ambient
 ```
 
-Folder structure
+####Folder structure
 ```
 \ - app                             <-- contains all your Typescript code
 |    \ - components
@@ -54,7 +54,7 @@ Folder structure
 ```
 
 Configure [tsconfig.json](tsconfig.json) to build **Typescipt** app files and output js to `dist` folder, 
-and setup [SystemJS](https://github.com/systemjs/systemjs/blob/master/docs/config-api.md) into [systemjs.config.js](systemjs.config.js) 
+and setup [SystemJS](https://github.com/systemjs/systemjs/blob/master/docs/config-api.md) into [systemjs.conf.js](systemjs.conf.js) 
 to load the **Angular** `app` module bootstrapping it with ngMetadata from `app/startup` . 
 And finally setup some scripts in [package.json](package.json) to automate `build` and `serve`
 
