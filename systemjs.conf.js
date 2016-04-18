@@ -14,6 +14,7 @@ var SystemConfig = (function() {
             "angular": "npm:angular/angular.min.js"
             ,"css": "npm:systemjs-plugin-css/css.js"    //enable css plugins for import *.css!
             ,"html": "npm:system-text/text.js"          //enable text plugins for import *.html!
+            //,"text": "npm:system-text/text.js"          // WIP uncomment this line, and comment the "html" line above
         },
         packages: {
             // npm packages are injected here
@@ -23,6 +24,11 @@ var SystemConfig = (function() {
                 "format": "global",
                 "exports": "angular"
             }
+            /* ,meta: { // WIP uncomment this section to enable serving html with loader text pluging
+                "*.html": {
+                    loader: "text"
+                }
+            } */
         }
     };
 

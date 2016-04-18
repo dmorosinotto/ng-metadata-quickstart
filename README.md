@@ -45,7 +45,7 @@ Folder structure
 |
 | - dist                            <-- output directory for transpiled code TS->JS
 | - index.html                      <-- initial page that load ambient dependency: SystemJS, Reflect-metadata 
-| - system.config.js                <-- SystemJS configuration for loading module startinf from 'app/startup' entrypoint  
+| - system.config.js                <-- SystemJS configuration for loading module starting from 'app/startup' entrypoint  
 \ - tsconfig.json                   <-- configure compiler (tsc) to build Typescript code 
 ```
 
