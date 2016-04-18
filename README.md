@@ -22,8 +22,8 @@ Open your browser and go to [http://localhost:8080](http://localhost:8080)
 
 
 ###Initial setup (JUST DONE)
-This step was JUST DONE to produce the repo in the current state, so you don't need to redone it!
-But it may be usefull to know how to start from scretch.
+This step was JUST DONE to produce the repository in the current state, so you don't need to redone it!
+But it may be useful to know how to start from scratch.
 ```
 npm init -y
 npm i --save  angular  reflect-metadata  systemjs  ng-metadata 
