@@ -9,29 +9,7 @@
     <script src="node_modules/reflect-metadata/Reflect.js"></script>
     
     <!-- 2. Configure SystemJS for ngMetadata -->
-    <script>
-    //read more info on SystemJS config here: https://github.com/systemjs/systemjs/blob/master/docs/config-api.md
-    System.config({
-        baseURL: '/',
-        paths: { 
-            app: "./dist",  //path outDir of transpiled TS->JS commonjs
-            "npm:*": "node_modules/*"   //path for npm modules included
-        },
-        map: {
-            angular:"npm:angular",              //resolve module name 'angular' to npm
-            "ng-metadata": "npm:ng-metadata"    //resolve module 'ng-metadata/*' to npm 
-        },
-        packages:{
-            app: { main: "startup" },               //define entrypoint for app
-            angular: { main: "angular.min" },       //load angular 1.5.x min.js
-            "ng-metadata": { map: { "/*":"./*" } }  //needed to properly resolve ng-metadata/core  and  ng-metadata/platform
-        }
-    });
-    
-    //load app  startup  (that boostrap angular and the app.module)  
-    System.import( "app" ).catch( console.error.bind( console ) );
-    </script>
-    
+    <script src="systemjs.conf.js">/*config SystemJS with entrypoint 'app/startup'*/</script>
     <link rel="stylesheet" href="styles.css">
   </head>
 
