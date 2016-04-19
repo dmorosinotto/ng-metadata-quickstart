@@ -1,6 +1,6 @@
 {
   "name": "ng-metadata-quickstart",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "Sample project quickstart using ngMetadata",
   "main": "index.js",
   "scripts": {
@@ -37,7 +37,6 @@
   },
   "devDependencies": {
     "tslint": "^3.7.4",
-    "typescript": "^1.8.10",
-    "systemjs-plugin-text": "git+https://github.com/systemjs/plugin-text.git"
+    "typescript": "^1.8.10"
   } 
 }

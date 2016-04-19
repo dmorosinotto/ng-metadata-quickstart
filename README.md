@@ -26,14 +26,15 @@ This step was JUST DONE to produce the repository in the current state, so you d
 But it may be useful to know how to start from scratch.
 ```
 npm init -y
-npm i --save  angular  reflect-metadata  systemjs  ng-metadata 
-npm i --save  systemjs-plugin-css  system-text
+npm i --save  angular  reflect-metadata  ng-metadata 
+npm i --save  systemjs  system-text systemjs-plugin-css
 npm i --save-dev  typescript  tslint
+typings i -g
 typings init
 typings install  jquery  angular  --save  --ambient
 ```
 
-Folder structure
+####Folder structure
 ```
 \ - app                             <-- contains all your Typescript code
 |    \ - components
@@ -48,22 +49,23 @@ Folder structure
 |
 | - dist                            <-- output directory for transpiled code TS->JS
 | - index.html                      <-- initial page that load ambient dependency: SystemJS, Reflect-metadata 
-| - system.config.js                <-- SystemJS configuration for loading module starting from 'app/startup' entrypoint  
+| - system.conf.js                <-- SystemJS configuration for loading module starting from 'app/startup' entrypoint  
 \ - tsconfig.json                   <-- configure compiler (tsc) to build Typescript code 
 ```
 
 Configure [tsconfig.json](tsconfig.json) to build **Typescipt** app files and output js to `dist` folder, 
-and setup [SystemJS](https://github.com/systemjs/systemjs/blob/master/docs/config-api.md) into [systemjs.config.js](systemjs.config.js) 
+and setup [SystemJS](https://github.com/systemjs/systemjs/blob/master/docs/config-api.md) into [systemjs.conf.js](systemjs.conf.js) 
 to load the **Angular** `app` module bootstrapping it with ngMetadata from `app/startup` . 
 And finally setup some scripts in [package.json](package.json) to automate `build` and `serve`
 
 
 ###BRANCH `bundle`
-This branch show how to build a sample app with component-style architecture and use TS to bundle all the compiled code in app_bundle.js 
+This branch show how to build a sample app with component-style architecture and use TS to bundle all the compiled code into `dist/app_bundle.js` 
 - [AskCmp](app/components/ask.component.ts) is a class that shows how to write a *dumb component* using inline template + ngMetadata `@Input` `@Output` to expose in/out bindings + handle `ngOnInit` life-cycle hook
 - [AppCmp](app/components/my-app.component.ts) is class that shows how to write a *smart component* using external html + ngMetadata `@Inject` for setting DI to get *services* instance + simple property binding and event handler
 - [QuestionSvc](app/services/question.service.ts) is a class that shows how to write a simple *service* decorated with ngMetadata `@Injectable` and using `@Inject` to get basics ng service/provider ($log,$q) injected by string 'token'
 - [AppModule](app/app.module.ts) define the ngModule importing and registering all the components and services using ngMetadata `...provide()` method and exposing the Module name to bootstrap the app in [startup](app/startup.ts)
+**NOTE:** To avoid TS2307 Compile error: "Cannot find module '...*.html'" follow instruction in [typings-manual-fix.d.ts](typings-manual-fix.d.ts#L4-L11)
 
 ###OTHER SETUP AND SAMPLE
 This repo contains other SystemJS config and TS sample, to test different setup checkout branches:

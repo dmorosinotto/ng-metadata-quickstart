@@ -14,6 +14,6 @@
   "files": [
     "app/startup.ts", //ENTRY-POINT FOR APP USED TO TRAVERSE/COMPILE DEPENDENCY TO BUILD BUNDLE
     "typings/browser.d.ts", //OTHER TYPESCRIPT DEFINITION FOR AMBIENT: angular, jquery, ...
-    "typings/tempfix-plugin-tsc-issue-6615.d.ts" //NEEDED TO FIX TS2307 ERROR LOADING HTML WITH SYSTEMJS PLUGIN
+    "typings-manual-fix.d.ts" //NEEDED TO VALIDATE require() FOR HTML/CSS
   ]
 }

@@ -22,9 +22,12 @@ var SystemConfig = (function() {
             "angular": {
                 "format": "global",
                 "exports": "angular"
-            },
-            "*.html": {
-                "loader": "text"
+            }
+            , "*.html": { // use html plugins for require(*.html) relative to 'app' source dir
+                loader: "html"
+            }
+            , "*.css": { // use css plugins for require(*.css) relative to 'app' source dir
+                loader: "css"
             }
         }
     };

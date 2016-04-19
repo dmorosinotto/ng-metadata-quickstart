@@ -1,11 +1,19 @@
 import {Component, Inject} from "ng-metadata/core";
 import {QuestionSvc} from "../services/question.service";
-import html from "app/components/my-app.html!"; // LOADING TEMPLATE HTML FROM EXTERNAL FILE WITH .html! SYSTEMJS PLAGIN
-// TO AVOID TS2307 ERROR YOU MUST USE ABSOLUTE PATH AND DECLARE MODULE IN    typings/tempfix-plugin-tsc-issue-6615.d.ts
+import html = require("./my-app.html"); // require external HTML relative path is based on 'app' source folder
+
+// IGNORE ERROR TS2307: Cannot find module './my-app.html' UNTIL ISSUE #6615 IS CLOSED(https://github.com/Microsoft/TypeScript/issues/6615)
+// OR USE IMPORT WITH FULLPATH TO LOAD THE TEMPLATE HERE
+// import * as html from "app/components/my-app.html";
+// AND HACK A CORRESPONDING DECLARE MODULE IN typings-manual-fix.d.ts
+// declare module "app/components/my-app.html" {
+//      const template: string;
+//      export default template;
+// }
 
 @Component({
     selector: "my-app",
-    template: html // I PREFER INLINE TEMPLATE, BUT YOU CAN USE SYSTEMJS PLUGIN .html! TO LOAD EXTERNAL FILE
+    template: html.default
 })
 export class AppCmp {
     constructor( // inject dependency into constructor
