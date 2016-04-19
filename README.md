@@ -1,5 +1,6 @@
 #ngMetadata Quickstart
-Sample project to quickstart an Angular project with Typescript using [ngMetadata](https://github.com/ngParty/ng-metadata)
+Sample project to quickstart an Angular 1.x application with Typescript 
+using [ngMetadata](https://github.com/ngParty/ng-metadata) to be ready to easly migrate to [NG2](https://angular.io) when it'll be ready!
 
 ##Prerequisite
 Prerequisite that you need to install before starting project
@@ -28,11 +29,12 @@ But it may be useful to know how to start from scratch.
 npm init -y
 npm i --save  angular  reflect-metadata  systemjs  ng-metadata
 npm i --save-dev  typescript  tslint
+npm i -g typings
 typings init
 typings install  jquery  angular  --save  --ambient
 ```
 
-Folder structure
+####Folder structure
 ```
 \ - app                             <-- contains all your Typescript code
 |    \ - components     
