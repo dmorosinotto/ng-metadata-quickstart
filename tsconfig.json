@@ -1,18 +1,18 @@
 {
   "compilerOptions": {
     "target": "es5",
-    "module": "system",
+    "module": "commonjs",
     "moduleResolution": "node",
     "sourceMap": true,
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "removeComments": false,
     "noImplicitAny": false,
-    "outFile": "dist/app-bundle.js", //BUILD AND BUNDLE ALL TS --> JS 
-    "rootDir": "./" //NEEDED TO HAVE CORRECT MODULE DEF app/* IN BUNDLE
+    "outDir": "./dist" // DIRECTORY WHERE ALL BUILD TS --> JS ARE SAVED
   },
-    "files": [
+  "files": [
     "app/startup.ts",
-    "typings/browser.d.ts"
+    "typings/browser.d.ts",
+    "typings-manual-fix.d.ts" // NEEDED TO VALIDATE require() FOR HTML/CSS
   ]
 }

@@ -42,12 +42,12 @@ Folder structure
 |
 | - dist                            <-- output directory for transpiled code TS->JS
 | - index.html                      <-- initial page that load ambient dependency: SystemJS, Reflect-metadata 
-| - system.config.js                <-- SystemJS configuration for loading module starting from 'app/startup' entrypoint 
+| - system.conf.js                  <-- SystemJS configuration for loading module starting from 'app/startup' entrypoint 
 \ - tsconfig.json                   <-- configure compiler (tsc) to build Typescript code 
 ```
 
 Configure [tsconfig.json](tsconfig.json) to build **Typescipt** app files and output js to `dist` folder, 
-and setup [SystemJS](https://github.com/systemjs/systemjs/blob/master/docs/config-api.md) into [systemjs.config.js](systemjs.config.js) 
+and setup [SystemJS](https://github.com/systemjs/systemjs/blob/master/docs/config-api.md) into [systemjs.conf.js](systemjs.conf.js) 
 to load the **Angular** `app` module bootstrapping it with ngMetadata from `app/startup` . 
 And finally setup some scripts in [package.json](package.json) to automate `build` and `serve`
 

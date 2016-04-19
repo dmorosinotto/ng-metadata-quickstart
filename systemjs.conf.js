@@ -8,6 +8,7 @@ var SystemConfig = (function() {
     var config = {
         baseUrl: "./",
         paths: {
+            app: "./dist",  // path outDir of transpiled TS->JS commonjs
             "npm:*": "node_modules/*"
         },
         map: {
@@ -15,6 +16,11 @@ var SystemConfig = (function() {
         },
         packages: {
             // npm packages are injected here
+            "app": {
+                "format": "cjs",
+                "defaultExtension": "js",
+                "main": "startup" // specify here the entry-point for 'app' bootstrap
+             }
         },
         meta: {
             "angular": {
@@ -37,5 +43,5 @@ var SystemConfig = (function() {
     System.config(config);
     
     // Load 'app/startup' compiled by TS into app_bundle.js (this will boostrap angular and the app.module)  
-    System.import( "app/startup" ).catch( console.error.bind( console ) );
+    System.import( "app" ).catch( console.error.bind( console ) );
 })();
