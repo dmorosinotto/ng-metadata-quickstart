@@ -26,14 +26,15 @@ This step was JUST DONE to produce the repository in the current state, so you d
 But it may be useful to know how to start from scratch.
 ```
 npm init -y
-npm i --save  angular  reflect-metadata  systemjs  ng-metadata 
-npm i --save  systemjs-plugin-css  system-text
-npm i --save-dev  typescript  tslint
+npm i --save  angular  reflect-metadata  ng-metadata
+npm i --save  systemjs  system-text  systemjs-plugin-css
+npm i --save-dev  typescript  tslint  copyfiles  rimraf
+typings i -g
 typings init
 typings install  jquery  angular  --save  --ambient
 ```
 
-Folder structure
+####Folder structure
 ```
 \ - app                             <-- contains all your Typescript code
 |    \ - components     
@@ -43,21 +44,22 @@ Folder structure
 |    | - styles.css                 <-- sample css styles loaded by plugin
 |    \ - startup.ts                 <-- entry point boostrap angular app
 |
-| - dist                            <-- output directory for transpiled code TS->JS
+| - dist                            <-- output directory for transpiled code TS->JS + copied assets css/html
 | - index.html                      <-- initial page that load ambient dependency: SystemJS, Reflect-metadata 
-| - system.config.js                <-- SystemJS configuration for loading module starting from 'app/startup' entrypoint  
-\ - tsconfig.json                   <-- configure compiler (tsc) to build Typescript code 
+| - system.conf.js                  <-- SystemJS configuration for loading module starting from 'app/startup' entrypoint  
+\ - tsconfig.json                   <-- configure compiler (tsc) to build Typescript code
 ```
 
-Configure [tsconfig.json](tsconfig.json) to build **Typescipt** app files and output js to `dist` folder, 
-and setup [SystemJS](https://github.com/systemjs/systemjs/blob/master/docs/config-api.md) into [systemjs.config.js](systemjs.config.js) 
+Configure [tsconfig.json](tsconfig.json) to build **Typescipt** app files and output corresponding (commonjs) JS files to `dist` folder, 
+and setup [SystemJS](https://github.com/systemjs/systemjs/blob/master/docs/config-api.md) into [systemjs.conf.js](systemjs.conf.js) 
 to load the **Angular** `app` module bootstrapping it with ngMetadata from `app/startup` . 
-And finally setup some scripts in [package.json](package.json) to automate `build` and `serve`
+And finally setup some scripts in [package.json](package.json) to automate `build` , `serve` and copy assets (html/css) to `dist`
 
 
 ###BRANCH `plugins`
-This branch use SystemJS [plugins](package.json#L35-L36) to load external resources: [*.html!](app/components/my-app.component.ts#L2) for component and [*.css!](app/startup.ts#L6) style,
-see changes in [systemjs.conf.js](systemjs.conf.js#L15-L16) to handle the configuration neccessary.
+This branch use SystemJS [plugins](package.json#L38-L39) to load external resources: [require(*.html)](app/components/my-app.component.ts#L2) for component and [import *.css!](app/startup.ts#L6) style,
+see [changes][systemjs.conf.js](systemjs.conf.js#L21-L25) in [systemjs.conf.js](systemjs.conf.js#L32-L36) to handle the configuration neccessary.
+**NOTE:** To avoid compile error for require, include global ambient definition in [typings-manual-fix.d.ts](typings-manual-fix.d.ts#L2)
 
 ###OTHER SETUP AND SAMPLE
 This repo contains other SystemJS config and TS sample, to test different setup checkout branches:

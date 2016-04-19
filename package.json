@@ -1,14 +1,17 @@
 {
   "name": "ng-metadata-quickstart",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "Sample project quickstart using ngMetadata",
   "main": "index.js",
   "scripts": {
-    "lint": "tslint --config tslint.json app/*.ts app/**/*.ts",
+    "clear:dist": "node_modules/.bin/rimraf dist",
+    "copy:asset": "node_modules/.bin/copyup 'app/**/*.html' 'app/**/*.css' dist",
+    "dist": "npm run clear:dist  &&  npm run copy:asset",
+    "lint": "tslint  --config tslint.json  app/*.ts  app/**/*.ts",
     "prebuild": "npm run lint",
     "build": "tsc  -w  -pretty  -p .",
     "serve": "http-server  --cors  -c-1  -o index.html",
-    "start": "npm run build  &  npm run serve",
+    "start": "npm run dist  &&  npm run build  &  npm run serve",
     "postinstall": "typings  install"
   },
   "repository": {
@@ -31,13 +34,14 @@
     "angular": "^1.5.3",
     "ng-metadata": "^1.5.2",
     "reflect-metadata": "^0.1.3",
-    "systemjs": "^0.19.26"
-    ,"system-text": "^0.1.0"
-    ,"systemjs-plugin-css": "^0.1.20"
+    "systemjs": "^0.19.26",
+    "system-text": "^0.1.0",
+    "systemjs-plugin-css": "^0.1.20"
   },
   "devDependencies": {
+    "copyfiles": "^0.2.1",
+    "rimraf": "^2.5.2",
     "tslint": "^3.7.4",
-    "typescript": "^1.8.10",
-    "systemjs-plugin-text": "git+https://github.com/systemjs/plugin-text.git"
+    "typescript": "^1.8.10"
   }
 }
