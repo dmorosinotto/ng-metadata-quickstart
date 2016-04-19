@@ -36,7 +36,7 @@ module.exports = function(config) {
       // paths loaded via Angular's component compiler
       // (these paths need to be rewritten, see proxies section)
       { pattern: 'app/**/*.html', included: false },
-      { pattern: 'app/**/*.css', included: false },
+      { pattern: './*.css', included: false },
 
       // paths to support debugging with source maps in dev tools
       { pattern: 'app/**/*.ts', included: false, watched: false },
