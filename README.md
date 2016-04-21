@@ -55,7 +55,7 @@ to load the **Angular** `app` module bootstrapping it with ngMetadata from `star
 And finally setup some scripts in [package.json](package.json) to automate `build` and `serve`
 
  ###BRANCH `test`
--This branch show how to configure tests with karma for an Angualr + ngMetadata project (contrib by @Oipo)
+ - This branch show how to configure tests with karma for an Angular + ngMetadata project (contrib by *Michael de Lang* [@Oipo](https://github.com/Oipo))
 
 ###OTHER SETUP AND SAMPLE
 This repo contains other SystemJS config and TS sample, to test different setup checkout branches:
