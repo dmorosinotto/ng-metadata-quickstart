@@ -58,3 +58,4 @@ This repo contains other SystemJS config and TS sample, to test different setup 
 - [`bundle`](https://github.com/dmorosinotto/ng-metadata-quickstart/tree/bundle) sample with TS compiler set with outFile to produce dist/app-bundle.js using system
 - [`outdir`](https://github.com/dmorosinotto/ng-metadata-quickstart/tree/outdir) sample with TS compiler set with outDir to produce all js in dist folder using commonjs
 - [`plugins`](https://github.com/dmorosinotto/ng-metadata-quickstart/tree/plugins) sample using SystemJS plugins to load external component html and include css styles
+- [`test`](https://github.com/dmorosinotto/ng-metadata-quickstart/tree/test) sample showing how to configure test with karma (contrib by *Michael de Lang* [@Oipo](https://github.com/Oipo))
