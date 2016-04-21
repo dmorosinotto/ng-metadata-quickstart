@@ -1,5 +1,6 @@
 #ngMetadata Quickstart
-Sample project to quickstart an Angular project with Typescript using [ngMetadata](https://github.com/ngParty/ng-metadata)
+Sample project to quickstart an Angular 1.x application with Typescript 
+using [ngMetadata](https://github.com/ngParty/ng-metadata) to be ready to easly migrate to [NG2](https://angular.io) when it'll be ready!
 
 ##Prerequisite
 Prerequisite that you need to install before starting project
@@ -26,7 +27,7 @@ typings install  jquery  angular  --save  --ambient
 typings install  angular-mocks  chai  jasmine  --save-dev  --ambient
 ```
 
-Folder structure
+####Folder structure
 ```
 \ - app                                 <-- contains all your Typescript code
 |    \ - components     
@@ -53,7 +54,11 @@ and setup [SystemJS](https://github.com/systemjs/systemjs/blob/master/docs/confi
 to load the **Angular** `app` module bootstrapping it with ngMetadata from `startup`
 And finally setup some scripts in [package.json](package.json) to automate `build` and `serve`
 
+ ###BRANCH `test`
+-This branch show how to configure tests with karma for an Angualr + ngMetadata project (contrib by @Oipo)
+
 ###OTHER SETUP AND SAMPLE
 This repo contains other SystemJS config and TS sample, to test different setup checkout branches:
 - [`bundle`](https://github.com/dmorosinotto/ng-metadata-quickstart/tree/bundle) sample with TS compiler set with outFile to produce dist/app-bundle.js using system
 - [`outdir`](https://github.com/dmorosinotto/ng-metadata-quickstart/tree/outdir) sample with TS compiler set with outDir to produce all js in dist folder using commonjs
+- [`plugins`](https://github.com/dmorosinotto/ng-metadata-quickstart/tree/plugins) sample using SystemJS plugins to load external component html and include css styles
