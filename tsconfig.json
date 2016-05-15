@@ -7,12 +7,10 @@
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "removeComments": false,
-    "noImplicitAny": false,
-    "outDir": "./dist" // DIRECTORY WHERE ALL BUILD TS --> JS ARE SAVED
+    "noImplicitAny": false
   },
   "files": [
     "app/startup.ts",
-    "typings/browser.d.ts",
-    "typings-manual-fix.d.ts" // NEEDED TO VALIDATE require() FOR HTML/CSS
+    "typings/browser.d.ts"
   ]
 }

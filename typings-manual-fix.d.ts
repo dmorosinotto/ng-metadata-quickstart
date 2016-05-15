@@ -1,2 +1,0 @@
-// FIX: GLOBAL AMBIENT DECLARE TO VALIDATE COMPILE OF require(...) FOR IMPORTING HTML/CSS IN TYPESCRIPT VIA PLUGINS
-declare const require: (pathToHtmlOrCss: string) => any;

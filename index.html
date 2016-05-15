@@ -3,13 +3,11 @@
     <title>ngMetadata QuickStart</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">    
 
-    <!-- 1. Load SystemJS + Reflect metadata -->
-    <script src="node_modules/systemjs/dist/system-polyfills.js"></script>
-    <script src="node_modules/systemjs/dist/system.js"></script>
+    <!-- 1. Load Reflect metadata polyfills (ngMetadata pre-requisite) -->
     <script src="node_modules/reflect-metadata/Reflect.js"></script>
     
-    <!-- 2. Configure SystemJS for ngMetadata -->
-    <script src="systemjs.conf.js">/*config SystemJS with entrypoint 'app/startup'*/</script>
+    <!-- 2. Load Bundle produced by Browserify (include Angular + ngMetadata) -->
+    <script src="dist/app-bundle.js"></script>
     
     <link rel="stylesheet" href="styles.css">
   </head>

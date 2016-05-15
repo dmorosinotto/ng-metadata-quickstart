@@ -27,7 +27,7 @@ This step was JUST DONE to produce the repository in the current state, so you d
 But it may be useful to know how to start from scratch.
 ```
 npm init -y
-npm i --save  angular  reflect-metadata  systemjs  ng-metadata
+npm i --save  angular  reflect-metadata  ng-metadata
 npm i --save-dev  typescript  tslint
 npm i -g typings
 typings init
@@ -43,15 +43,15 @@ typings install  jquery  angular  --save  --ambient
 |    \ - startup.ts                 <-- entry point boostrap angular app
 |
 | - dist                            <-- output directory for transpiled code TS->JS
-| - index.html                      <-- initial page that load ambient dependency: SystemJS, Reflect-metadata 
-| - system.conf.js                  <-- SystemJS configuration for loading module starting from 'app/startup' entrypoint 
+|    \ - app-bundle.js              <-- bundle built with Browserify (include all code + Angular + ngMetadata)
+| - index.html                      <-- initial page that load ambient dependency: Reflect-metadata 
 \ - tsconfig.json                   <-- configure compiler (tsc) to build Typescript code 
 ```
 
-Configure [tsconfig.json](tsconfig.json) to build **Typescipt** app files and output js to `dist` folder, 
-and setup [SystemJS](https://github.com/systemjs/systemjs/blob/master/docs/config-api.md) into [systemjs.conf.js](systemjs.conf.js) 
-to load the **Angular** `app` module bootstrapping it with ngMetadata from `app/startup` . 
-And finally setup some scripts in [package.json](package.json) to automate `build` and `serve`
+Configure [tsconfig.json](tsconfig.json) to build **Typescipt** app files with commonjs/node module, 
+but we run it via Browserify + Tsify to output a single bundle with all code + Angular + ngMetadata
+startig from  `app/startup.ts`  and traversing all import / dependency to build  `dist/app-bundle.js`
+All compilation are setup as npm scripts in [package.json](package.json) to automate `build` and `serve`
 
 ###OTHER SETUP AND SAMPLE
 This repo contains other SystemJS config and TS sample, to test different setup checkout branches:
@@ -59,3 +59,4 @@ This repo contains other SystemJS config and TS sample, to test different setup 
 - [`outdir`](https://github.com/dmorosinotto/ng-metadata-quickstart/tree/outdir) sample with TS compiler set with outDir to produce all js in dist folder using commonjs
 - [`plugins`](https://github.com/dmorosinotto/ng-metadata-quickstart/tree/plugins) sample using SystemJS plugins to load external component html and include css styles
 - [`test`](https://github.com/dmorosinotto/ng-metadata-quickstart/tree/test) sample showing how to configure test with karma (contrib by *Michael de Lang* [@Oipo](https://github.com/Oipo))
+- [`browserify`](https://github.com/dmorosinotto/ng-metadata-quickstart/tree/browserify) sample with TS compiled using Browserify + Tsify to build single bundle from commonjs/node modules
