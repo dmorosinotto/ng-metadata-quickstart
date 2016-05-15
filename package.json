@@ -1,6 +1,6 @@
 {
   "name": "ng-metadata-quickstart",
-  "version": "1.3.0",
+  "version": "1.4.0",
   "description": "Sample project quickstart using ngMetadata",
   "main": "index.js",
   "scripts": {
@@ -31,8 +31,8 @@
   },
   "homepage": "https://github.com/dmorosinotto/ng-metadata-quickstart#readme",
   "dependencies": {
-    "angular": "^1.5.3",
-    "ng-metadata": "^1.5.2",
+    "angular": "^1.5.5",
+    "ng-metadata": "^1.11.0",
     "reflect-metadata": "^0.1.3",
     "systemjs": "^0.19.26"
   },

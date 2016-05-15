@@ -55,6 +55,7 @@ And finally setup some scripts in [package.json](package.json) to automate `buil
 
 ###OTHER SETUP AND SAMPLE
 This repo contains other SystemJS config and TS sample, to test different setup checkout branches:
+- [`browserify`](https://github.com/dmorosinotto/ng-metadata-quickstart/tree/browserify) sample with TS compiled using Browserify + Tsify to build single bundle from commonjs/node modules
 - [`bundle`](https://github.com/dmorosinotto/ng-metadata-quickstart/tree/bundle) sample with TS compiler set with outFile to produce dist/app-bundle.js using system
 - [`outdir`](https://github.com/dmorosinotto/ng-metadata-quickstart/tree/outdir) sample with TS compiler set with outDir to produce all js in dist folder using commonjs
 - [`plugins`](https://github.com/dmorosinotto/ng-metadata-quickstart/tree/plugins) sample using SystemJS plugins to load external component html and include css styles
